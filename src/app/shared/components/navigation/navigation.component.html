@@ -1,0 +1,22 @@
+<nav class="navigation">
+    <div class="container-fluid">
+        <div class="navigation__container">
+            <div class="logo"></div>
+            <div class="flex-spacer"></div>
+            <div class="navigation__avatar-wrapper">
+                <i *ngIf="!currentUserAva" class="material-icons">
+                    account_circle
+                </i>
+                <img *ngIf="currentUserAva" src="{{currentUserAva}}" class="navigation__avatar-pic" alt="Current user avatar">
+            </div>
+            <div class="navigation__menu">
+                <button mat-button [matMenuTriggerFor]="menu">{{currentUser}}</button>
+                <mat-menu #menu="matMenu">
+                    <a routerLink="/profile" mat-menu-item>Profile</a>
+                    <a routerLink="/" mat-menu-item>Records</a>
+                    <button mat-menu-item>Log Out</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</nav>

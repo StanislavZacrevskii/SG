@@ -1,0 +1,20 @@
+<form  [formGroup]="createRecordForm">
+    <h1 mat-dialog-title>{{dialogTitle}}</h1>
+    <mat-dialog-content class="record__dialog">
+        <mat-form-field>
+            <input formControlName="title"
+                   placeholder="Title"
+                   matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea formControlName="description"
+                   placeholder="Description"
+                   matInput>
+            </textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="saveRecord();">Add</button>
+        <button mat-button (click)="onCancelClick();">Cancel</button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="records">
+        <div class="records__buttons">
+            <button mat-raised-button (click)="addNewRecord();">Add record</button>
+        </div>
+        <div class="records__table">
+            <table mat-table [dataSource]="records" class="mat-elevation-z1 max-width">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef> Title </th>
+                    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+                <ng-container matColumnDef="createOn">
+                    <th mat-header-cell *matHeaderCellDef> Create On </th>
+                    <td mat-cell *matCellDef="let element"> {{element.createOn | date: "short"}} </td>
+                </ng-container>
+                <ng-container matColumnDef="button">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button (click)="editRecord(element);">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="deleteRecord(element);">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

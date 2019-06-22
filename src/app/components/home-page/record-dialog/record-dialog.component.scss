@@ -1,0 +1,8 @@
+.record__dialog {
+    display: flex;
+    flex-direction: column;
+}
+
+.record__dialog > * {
+    width: 100%;
+}

@@ -1,0 +1,25 @@
+.max-width {
+    width: 100%;
+}
+
+.records {
+
+    .records__buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+}
+
+.mat-column-id {
+    width: 80px;
+}
+
+.mat-column-button {
+    width: 80px;
+    text-align: center;
+}
+
+.mat-column-createOn {
+    width: 150px;
+}
