@@ -10,13 +10,19 @@
             </label>
             <input type="file" id="ava" class="profile__form-avatar-upload" accept="image/jpeg,image/png">
             <mat-form-field class="profile__form-full-width">
-                <input matInput formControlName="name" placeholder="Name">
+                <input matInput
+                       formControlName="name"
+                       required
+                       placeholder="Name">
                 <mat-error *ngIf="createProfileForm.controls['name'].hasError('required')">
                     Name is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="profile__form-full-width">
-                <input matInput formControlName="email" placeholder="Email">
+                <input matInput
+                       formControlName="email"
+                       required
+                       placeholder="Email">
                 <mat-error *ngIf="createProfileForm.controls['email'].hasError('email') && !createProfileForm.controls['email'].hasError('required')">
                     Please enter a valid email address
                 </mat-error>
@@ -26,12 +32,16 @@
             </mat-form-field>
             <mat-form-field class="profile__form-full-width">
                 <span matPrefix>+38&nbsp;</span>
-                <input type="tel" matInput formControlName="telephone" placeholder="Telephone">
-                <mat-error *ngIf="createProfileForm.controls['telephone'].hasError('pattern') && !createProfileForm.controls['email'].hasError('telephone')">
+                <input type="tel"
+                       matInput
+                       formControlName="telephone"
+                       required
+                       placeholder="Telephone">
+                <mat-error *ngIf="createProfileForm.controls['telephone'].invalid && !createProfileForm.controls['telephone'].hasError('required')">
                     Please enter a valid telephone number
                 </mat-error>
                 <mat-error *ngIf="createProfileForm.controls['telephone'].hasError('required')">
-                    Name is <strong>required</strong>
+                    Telephone is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             <div class="profile__form-full-width">
