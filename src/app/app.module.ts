@@ -22,6 +22,7 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './authorization/components/login/login.component';
+import { RegisterComponent } from './authorization/components/register/register.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { LoginComponent } from './authorization/components/login/login.component
         HomePageComponent,
         RecordDialogComponent,
         ProfileComponent,
-        LoginComponent
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserModule,
