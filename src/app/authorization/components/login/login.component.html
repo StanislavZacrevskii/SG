@@ -1,0 +1,42 @@
+<form [formGroup]="loginCreateForm" class="login__form">
+    <mat-card class="login__card">
+        <mat-card-header>
+            <mat-card-title>LOGIN</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field class="login__page-full-width">
+                <input matInput
+                       formControlName="loginEmail"
+                       placeholder="Email">
+                <mat-error *ngIf="loginCreateForm.controls['loginEmail'].hasError('email') && !loginCreateForm.controls['loginEmail'].hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginCreateForm.controls['loginEmail'].hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="loginCreateForm.controls['loginEmail'].hasError('wrong')">
+                    Email is <strong>wrong</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="login__page-full-width">
+                <input matInput
+                       placeholder="Enter your password"
+                       [type]="hide ? 'password' : 'text'"
+                       formControlName="loginPassword">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginCreateForm.controls['loginPassword'].hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="loginCreateForm.controls['loginPassword'].hasError('wrong')">
+                    Password is <strong>wrong</strong>
+                </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="login();" mat-raised-button>LOGIN</button>
+            <a mat-raised-button>REGISTER</a>
+        </mat-card-actions>
+    </mat-card>
+</form>
