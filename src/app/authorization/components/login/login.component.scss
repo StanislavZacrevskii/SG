@@ -1,0 +1,20 @@
+:host {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.login__page-full-width {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login__card {
+    padding: 50px;
+}
+
+mat-card-header, mat-card-actions {
+    display: flex;
+    justify-content: center;
+}

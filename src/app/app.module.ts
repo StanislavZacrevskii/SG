@@ -8,6 +8,7 @@ import { SharedModule } from "./shared/shared.module";
 import { HomePageComponent } from './components/home-page/home-page.component';
 import {
     MatButtonModule,
+    MatCardModule,
     MatDialogModule,
     MatIconModule,
     MatInputModule,
@@ -20,13 +21,15 @@ import {
 } from "@angular/forms";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LoginComponent } from './authorization/components/login/login.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomePageComponent,
         RecordDialogComponent,
-        ProfileComponent
+        ProfileComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -40,7 +43,8 @@ import { ProfileComponent } from './components/profile/profile.component';
         FormsModule,
         ReactiveFormsModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatCardModule
     ],
     providers: [],
     bootstrap: [AppComponent],

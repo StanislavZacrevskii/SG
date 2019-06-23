@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LoginComponent } from './authorization/components/login/login.component';
 
 const routes: Routes = [
     {
@@ -25,6 +26,10 @@ const routes: Routes = [
                 description: 'Profile'
             }
         }
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     }
 ];
 
