@@ -1,38 +1,41 @@
 <div class="container-fluid">
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Company (disabled)" disabled value="Google">
-        </mat-form-field>
-
-        <table class="example-full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="example-full-width">
-                <input matInput placeholder="First name">
-            </mat-form-field></td>
-            <td><mat-form-field class="example-full-width">
-                <input matInput placeholder="Long Last Name That Will Be Truncated">
-            </mat-form-field></td>
-        </tr></table>
-
-        <p>
-            <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+    <div class="profile__form-wrapper">
+        <form [formGroup]="createProfileForm" class="profile__form">
+            <label for="ava" class="profile__form-full-width avatar">
+                <i *ngIf="!currentUserAva" class="material-icons">
+                    account_circle
+                </i>
+                <img *ngIf="currentUserAva" src="{{currentUserAva}}" class="profile__form-avatar-pic" alt="Current user avatar">
+            </label>
+            <input type="file" id="ava" class="profile__form-avatar-upload" accept="image/jpeg,image/png">
+            <mat-form-field class="profile__form-full-width">
+                <input matInput formControlName="name" placeholder="Name">
+                <mat-error *ngIf="createProfileForm.controls['name'].hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Address 2"></textarea>
+            <mat-form-field class="profile__form-full-width">
+                <input matInput formControlName="email" placeholder="Email">
+                <mat-error *ngIf="createProfileForm.controls['email'].hasError('email') && !createProfileForm.controls['email'].hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="createProfileForm.controls['email'].hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
             </mat-form-field>
-        </p>
-
-        <table class="example-full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="example-full-width">
-                <input matInput placeholder="City">
-            </mat-form-field></td>
-            <td><mat-form-field class="example-full-width">
-                <input matInput placeholder="State">
-            </mat-form-field></td>
-            <td><mat-form-field class="example-full-width">
-                <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-            </mat-form-field></td>
-        </tr></table>
-    </form>
+            <mat-form-field class="profile__form-full-width">
+                <span matPrefix>+38&nbsp;</span>
+                <input type="tel" matInput formControlName="telephone" placeholder="Telephone">
+                <mat-error *ngIf="createProfileForm.controls['telephone'].hasError('pattern') && !createProfileForm.controls['email'].hasError('telephone')">
+                    Please enter a valid telephone number
+                </mat-error>
+                <mat-error *ngIf="createProfileForm.controls['telephone'].hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div class="profile__form-full-width">
+                <button mat-raised-button color="primary" (click)="saveProfile();">Save</button>
+            </div>
+        </form>
+    </div>
 </div>
